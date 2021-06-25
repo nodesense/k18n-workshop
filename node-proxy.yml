@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: np-ps-deployment
+spec:
+  selector:
+    matchLabels:
+        app: np-ps-1
+  template:
+    metadata:
+      labels:
+        app: np-ps-1
+    spec:
+      containers:
+      - name: nodeproxyhi
+        image: gopalakrishnansubramani/sample:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8808
+        env:
+        - name: VAR1
+          value: "k18ntttt"
+        - name: PORT
+          value: "8808"

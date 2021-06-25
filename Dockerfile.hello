@@ -1,0 +1,17 @@
+FROM node:12-alpine
+
+ENV VAR "hello earth!!!"
+ENV VAR1 "from-docerfile"
+ENV PORT 8808
+
+WORKDIR /hello-world
+
+COPY ./server.js .
+
+COPY ./package.json .
+
+RUN npm install
+
+EXPOSE 8080 8808
+
+CMD ["node", "server.js"]
